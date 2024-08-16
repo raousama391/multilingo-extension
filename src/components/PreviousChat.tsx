@@ -14,7 +14,7 @@ const PreviousChat = () => {
           <FormItem className="flex flex-col gap-3">
             <FormLabel className="font-bold text-lg">Previous Chat</FormLabel>
             <FormControl>
-              <Textarea {...field} placeholder="Enter previous chat..." />
+              <Textarea {...field} placeholder="Enter previous chat..." className="min-h-44" />
             </FormControl>
           </FormItem>
         )}
