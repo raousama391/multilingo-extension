@@ -1,11 +1,10 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import PreviousChat from "./PreviousChat";
-import { Button } from "./ui/button";
+import UserMessage from "./UserMessage";
 
 const chatForm = z.object({
-  previousChat: z.string(),
+  newMessage: z.string(),
 });
 
 const ChatForm = () => {
@@ -21,8 +20,7 @@ const ChatForm = () => {
     <div className="flex flex-col w-full">
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(submitData)}>
-          <PreviousChat />
-          <Button>Submit</Button>
+          <UserMessage />
         </form>
       </FormProvider>
     </div>
