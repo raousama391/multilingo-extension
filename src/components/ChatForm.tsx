@@ -18,7 +18,7 @@ const ChatForm = () => {
     console.log("form submitted", values);
   };
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full h-full">
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(submitData)}>
           <UserMessage />
