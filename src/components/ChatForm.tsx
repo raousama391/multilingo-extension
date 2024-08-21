@@ -2,6 +2,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import UserMessage from "./UserMessage";
+import LlmResponse from "./LlmResponse";
 
 const chatForm = z.object({
   newMessage: z.string(),
@@ -21,6 +22,7 @@ const ChatForm = () => {
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(submitData)}>
           <UserMessage />
+          <LlmResponse />
         </form>
       </FormProvider>
     </div>
