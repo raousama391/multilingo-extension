@@ -43,7 +43,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
-  signup: async (email: string, password: string, fullName: string) => {
+  signup: async (email: string, password: string) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -51,8 +51,8 @@ export const useAuthStore = create<AuthState>((set) => ({
         password
       );
       await sendEmailVerification(userCredential.user);
-      await updateProfile(userCredential.user, { displayName: fullName });
-      await signOut(auth);
+      //   await updateProfile(userCredential.user, { displayName: fullName });
+      //   await signOut(auth);
       toast.success("Account created. Please verify your email.");
     } catch (error) {
       console.error("Error signing up:", error);
@@ -67,12 +67,12 @@ export const useAuthStore = create<AuthState>((set) => ({
         email,
         password
       );
-      if (!userCredential.user.emailVerified) {
-        await signOut(auth);
-        toast("Verify Email", {
-          description: "Please verify your email",
-        });
-      }
+      //   if (!userCredential.user.emailVerified) {
+      //     await signOut(auth);
+      //     toast("Verify Email", {
+      //       description: "Please verify your email",
+      //     });
+      //   }
     } catch (error) {
       console.error("Error logging in:", error);
       toast.error("Failed to log in");

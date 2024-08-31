@@ -3,11 +3,14 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { ArrowRight } from "lucide-react";
+import { useAuthStore } from "@/store/firebaseStore";
 
 const Login = () => {
+  const googleSignin = useAuthStore((state) => state.signInWithGoogle);
   return (
     <>
       <Button
+        onClick={googleSignin}
         variant="outline"
         className="w-full bg-white hover:bg-gray-50 border-gray-300"
       >
